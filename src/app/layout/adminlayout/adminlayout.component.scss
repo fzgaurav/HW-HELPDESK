@@ -1,0 +1,264 @@
+html, body, #main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  #main{
+    background: #efefef;
+    
+  }
+  .top-bar-inner-right .dropdown-toggle::after{display: none;}
+  .top-bar-inner-right .navbar-expand .navbar-nav .dropdown-menu {
+    position: absolute;
+    top: 40px;
+    width: 200px;
+    left: -160px;
+    border-radius: 5px;
+    background-color: #ffffffed !important;
+  }
+  ul.subnav li {
+    list-style: none;
+    cursor: pointer;
+    padding: 5px 20px 10px 10px;
+    font-size: 12px;
+    text-align: right;
+    border-bottom: 1px dotted #dddddd;
+  }
+  li.subnav-item:hover a {
+    color: #484848;
+  }
+  li.subnav-item:hover {
+    background: #efefef;
+  }
+  li.subnav-item a {
+    color: #484848;
+  }
+  ul.subnav {
+    padding-left: 0;
+  }
+  .main-navbar{background:#fff;}
+  .main-navbar ul.navbar-nav {
+    width: 100%;
+  }
+  .main-navbar .dropdown-toggle::after {
+    position: relative;
+    top: 10px;
+    left: 15px;
+  }
+  .main-navbar li.nav-item.dropdown {
+    min-width: 125px;
+    /* margin-left: 10px; */
+    padding-left: 20px;
+  }
+  .carousel-wrap{
+    background: #fff;
+  }
+  .owl-carousel .owl-stage-outer {
+    overflow: unset !important;
+  }
+  .owl-nav > button {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    color: #cdcbcd;
+  }
+  
+  .owl-nav .fa-caret-left {
+    padding-right: 2px;
+  }
+  .owl-nav i {
+    font-size: 22px;
+    color: #807e7e;
+    border: 1px solid;
+    border-radius: 50px;
+    width: 25px;
+    height: 25px;
+    line-height: 22px;
+    background: #ffffff;
+    transition: all 0.4s;
+  }
+  .owl-nav .fa-caret-right {
+    padding-left: 4px;
+  }
+  /* .owl-carousel .owl-stage-outer{padding-left: 50px; padding-right: 50px;} */
+  .owl-nav{
+    position: absolute;
+    top: 30px;
+  }
+  .owl-nav .owl-prev{
+    position: absolute;
+    left: 25px;
+  }
+  .owl-nav .owl-next{
+    position: absolute;
+    right: -98vw;
+  }
+  .nav-item.dropdown{
+    text-align: left;
+  }
+  .owl-dots{display: none;}
+  .owl-carousel.hero-home-banner{
+    border-top: 1px solid #a9a7a7;
+    border-bottom: 1px solid #a9a7a7;
+  }
+  .navbar-nav .nav-link {
+    color: #717070;
+    font-size: 13px;
+  }
+  .sidebar-notification{z-index: 0;}
+  .notification-header{
+    background: #d23226;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .notifications-item{
+    list-style: none;
+    background: #fefefe;
+    border-bottom: 0.5px dotted #bababaef;
+  }
+  li.notifications-item:last-child {
+    margin-bottom: 8px;
+  }
+  ul.notification-lists{
+    max-height: 435px;
+    overflow: scroll;
+  }
+  .dashboard-notification{
+    position: fixed;
+    bottom: 0;
+  }
+  .phlebo-tracking .card, .order-tracking .card {
+    max-width: 100%;
+    background: #ffffffef;
+    color: #777776;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 0px;
+  }
+  .dropdown-toggle::after {
+    position: absolute;
+    top: 18px;
+    right: -10px;
+  }
+  .order-tracking:nth-child(even) .card {margin-left: 0 !important;}
+  .order-tracking:nth-child(odd)  .card{margin-right: 0  !important;;}
+  .phlebo-tracking .card h6, .order-tracking .card h6{font-style: oblique;font-weight: 500;    margin-bottom: 0;}
+  h3.card-body.media-body {
+    color: #d23226;
+    margin-bottom: 0;
+  }
+  
+  h6.custom-title:after {
+    width: calc(70%);
+    height: 1px;
+    background: #7e7e7e;
+    content: "";
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    z-index: 0;
+  }
+  .custom-title{margin-bottom: 10px;}
+  
+  /*Control Form CSS*/
+  input[type=text], input[type=email], input[type=tel], input[type=number]{
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #b7b7b7;
+    min-width: 250px;
+    outline: none;
+  }
+  .input-group-text {
+    background-color: #d23226;
+    border: 1px solid #d23226;}
+  
+   .custom-btn{
+    color: #d23226;
+    background: #ffffff;
+        width: 180px;
+        padding: 5px 20px;
+        border-radius: 50px;
+        transition: 0.4s;
+        border: 1px solid #d23226;
+    }
+  
+  .custom-btn:hover{box-shadow: 0 4px 12px -8px #000000c9;
+  transform: translateY(-2px);
+  color: #fff;
+  background: #d23226;
+  text-decoration: none;}
+  .custom-control.custom-checkbox:hover, .custom-control.custom-checkbox label:hover{cursor: pointer;}
+  .custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #d23226;
+    background-color: #d23226;
+  }
+  /* The container */
+  .radio-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size:18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .radio-checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .radio-container:hover input ~ .radio-checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .radio-container input:checked ~ .radio-checkmark {
+    background-color: #d23226;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .radio-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .radio-container input:checked ~ .radio-checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .radio-container .radio-checkmark:after {
+    top: 6.5px;
+    left: 6.5px;
+    width: 7px;
+    height: 7px;
+      border-radius: 50%;
+      background: white;
+  }
+  table th tr:first-child{
+    background:#6d7884;
+  }

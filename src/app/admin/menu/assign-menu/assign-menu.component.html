@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class=" bg-primary text-white pt-1 pb-1">
+            <h4 class="text-uppercase text-center">Assign Menu</h4>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="col-12 text-center">
+        <div class="row">
+            <div class="col-3"><label>ROLE:</label></div>
+            <div class="col-9">
+                <div class="form-group">
+                    <div class="input-group col-6">
+                        <select id="name" type="text" class="form-control" (change)="onChangeEvent($event)">
+                            <option value="0">SELECT</option>
+                            <option *ngFor="let item of roleObjs" [value]="item.r_id">{{item.r_role_name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="col-md-12">
+        <table class="table" style="width: 100%">
+            <thead style="background-color: #e2e2e2;">
+                <tr>
+                    <th>SNo.</th>
+                    <th>Menu Name</th>
+                    <th>Sub Menu Name</th>
+                    <th><input type="checkbox" [(ngModel)]="isViewAll" (change)="CheckUncheckViewAll()" />Is View</th>
+                    <th><input type="checkbox" [(ngModel)]="isEditAll" (change)="CheckUncheckEditAll()" />Is Edit</th>
+                    <th><input type="checkbox" [(ngModel)]="isEnableDisableAll" (change)="CheckUncheckEDAll()" />Is Enable/Disable</th>
+                    <th><input type="checkbox" [(ngModel)]="isShowAll" (change)="CheckUncheckShowAll()" />Show Menu</th>
+                    <!-- <th>Option</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of userMenuObjs">
+                    <td>
+                        {{userMenuObjs.indexOf(item) + 1}}
+                    </td>
+                    <td>
+                        {{item.ModuleName}}
+                    </td>
+                    <td>
+                        {{item.PageName}}
+                    </td>
+                    <td>
+                        <input type="checkbox" [(ngModel)]="item.IsView" value="{{item.IsView}}"
+                            [checked]="item.IsView">
+                    </td>
+                    <td>
+                        <input type="checkbox" [(ngModel)]="item.IsEdit" value="{{item.IsEdit}}"
+                            [checked]="item.IsEdit">
+                    </td>
+                    <td>
+                        <input type="checkbox" [(ngModel)]="item.IsenableDisable" value="{{item.IsenableDisable}}"
+                            [checked]="item.IsenableDisable">
+                    </td>
+                    <td>
+                        <input type="checkbox" [(ngModel)]="item.isActive" value="{{item.isActive}}"
+                            [checked]="item.isActive">
+                    </td>
+                    <!-- <td> <button type="button" class="btn btn-outline-primary rounded-100 mr-5"
+                            (click)="onClickMenuUpdate(item)">Assign</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12 mb-5">
+        <button type="button" class="btn btn-outline-primary rounded-100 mr-5"
+                            (click)="GetData()">Assign</button>
+    </div>
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+        <p style="color: red">Please Wait. </p>
+    </ngx-spinner>
+</div>

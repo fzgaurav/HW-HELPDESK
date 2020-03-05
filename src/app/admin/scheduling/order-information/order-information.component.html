@@ -1,0 +1,270 @@
+<div class="row mb-2 ml-2 mr-2">
+    <div class=" col-md-12" style="background:#6d7884">
+        <div class="text-white pt-1 pb-1" style="background:#6d7884">
+            <h5 class="text-uppercase text-left mb-0">Order Information</h5>
+        </div>
+    </div>
+</div>
+<mat-tab-group class="container row">
+    <mat-tab label="Personal Information">
+        <div class="myFont col-12 row">
+            <div class="col-6 row pt-4">
+                <div class="col-12">
+                    <h6 class="custom-title"><strong><i>Customer Details</i></strong></h6>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>CUSTOMER NAME</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>GENDER</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>DOB</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>AGE</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>MOBILE NO.</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>ALTERNATE NO.</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>EMAIL ID</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>ALTERNATE EMAIL ID</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="col-6 row pt-4">
+                <div class="col-12">
+                    <h6 class="custom-title"><strong><i>Address Details</i></strong></h6>
+                </div>
+                <div class="col-12">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>PINCODE</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>HOUSE NO.</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>FLOOR NO.</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>BLOCK NO.</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>LANDMARK</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-12">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>GEO ADDRESS</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>CITY</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>STATE</mat-label>
+                        <input matInput placeholder="Show Name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    </mat-tab>
+    <mat-tab class="col-4" label="Product Information">
+        <div class="myFont col-12 row p-4">
+            <div class="col-12">
+                <h6 class="custom-title"><strong><i>Product Details</i></strong></h6>
+            </div>
+            <div class="col-12 p-4">
+                <table class="table" style="width: 100%; font-size: 12px;">
+                    <thead>
+                        <tr style="color: #fff; text-align: center;">
+                            <th>SNo.</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Promo Code</th>
+                            <th>Discount</th>
+                            <th>Final Price</th>
+                            <!-- <th>Approve</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let element of requestDetailsObjs' style="text-align: center;">
+                            <td>{{requestDetailsObjs.indexOf(element) + 1}}</td>
+                            <td>{{element.DistrictName}}</td>
+                            <td>{{element.DefaultRoute}}</td>
+                            <td>{{element.LastApprovedRoute}}</td>
+                            <td>{{element.RequestedRoute}}</td>
+                            <td>{{element.ApprovedRoute}}</td>
+                            <!-- <td><input id="txt" type="text"  [disabled]="!chkEnable.checked" [(ngModel)]="element.ApprovedRoute"  value="{{element.ApprovedRoute}}"
+                                         style="width: 80px !important; min-width: auto;"></td>
+                                      <td><input #chkEnable [(ngModel)]="element.isApproved" type="checkbox" /></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 row p-2">
+                <div class="col-12">
+                    <h6 class="custom-title"><strong><i>Payment Details</i></strong></h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>FINAL PRICE</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>TOTAL DISCOUNT AMOUNT</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>DISCOUNT (%)</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>ORDER DATE</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>ORDER TIME</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>PAYMENT MODE</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>DOCTOR STATUS</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>DITITIAN STATUS</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>HM STATUS</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+        </div>
+
+    </mat-tab>
+    <mat-tab class="col-4" label="Order History">
+        <div class="myFont col-12 row p-4">
+            <div class="col-12">
+                <h6 class="custom-title"><strong><i>Order Details</i></strong></h6>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>TL NAME</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>MANAGER NAME</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="legacy">
+                    <mat-label>BOOKED BY</mat-label>
+                    <input matInput placeholder="Show Name">
+                </mat-form-field>
+            </div>
+            <div class="col-12">
+                <h6 class="custom-title"><strong><i>Order/Disposition History</i></strong></h6>
+            </div>
+            <div class="col-12 p-4">
+                <table class="table" style="width: 100%; font-size: 12px;">
+                    <thead>
+                        <tr style="color: #fff; text-align: center;">
+                            <th>SNo.</th>
+                            <th>Particulars</th>
+                            <th>Disposition</th>
+                            <th>By</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let element of requestDetailsObjs' style="text-align: center;">
+                            <td>{{requestDetailsObjs.indexOf(element) + 1}}</td>
+                            <td>{{element.DistrictName}}</td>
+                            <td>{{element.DefaultRoute}}</td>
+                            <td>{{element.LastApprovedRoute}}</td>
+                            <td>{{element.RequestedRoute}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- </div> -->
+
+    </mat-tab>
+</mat-tab-group>

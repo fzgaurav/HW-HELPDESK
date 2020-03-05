@@ -1,0 +1,114 @@
+<div class="row mb-5 ml-2 mr-2">
+    <div class=" col-md-12" style="background:#6d7884">
+        <div class="text-white pt-1 pb-1" style="background:#6d7884">
+            <h5 class="text-uppercase text-left mb-0">PHLEBO LIST</h5>
+        </div>
+    </div>
+    <div class="col-md-12 mt-4">
+        <h6 class="custom-title"><strong><i>Apply Filter</i></strong></h6>
+        <div class="row mt-3 pt-1 pb-1 border" style="background-color: white;">
+            
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width d-block">
+                    <mat-select placeholder="Select Drop Point" [value]="selected">
+                        <mat-option [value]="-1">-- Select --</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width d-block">
+                    <mat-select placeholder="Select District" [value]="selected">
+                        <mat-option [value]="-1">-- Select --</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="example-full-width d-block">
+                    <mat-select placeholder="Select Phlebo Type" [value]="selected">
+                        <mat-option [value]="-1">-- Select --</mat-option>
+                        <mat-option [value]="0">Full Time</mat-option>
+                        <mat-option [value]="1">Part Time</mat-option>
+                        <mat-option [value]="2">Per Pickup</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                   
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-12 mt-4">
+        <h6 class="custom-title"><strong><i>Phlebo List</i></strong></h6>
+    </div>
+
+
+    <div class="col-md-12 row mb-6">
+        <div class="col-sm-12">
+            <mat-form-field class="example-full-width">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+            <table mat-table [dataSource]="dataSource" style="width: 100%">
+                <ng-container matColumnDef="SNo.">
+                    <th mat-header-cell *matHeaderCellDef>SNo.</th>
+                    <td mat-cell *matCellDef="let element; let i = index;">
+                        {{ i + 1 }}</td>
+                </ng-container>
+                <!-- Position Column -->
+                <ng-container matColumnDef="requestNo">
+                    <th mat-header-cell *matHeaderCellDef>Phlebo Name</th>
+                    <td mat-cell *matCellDef="let element">
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="userName">
+                    <th mat-header-cell *matHeaderCellDef>Drop Point</th>
+                    <td mat-cell *matCellDef="let element">
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="helpdesk">
+                    <th mat-header-cell *matHeaderCellDef>Help Desk</th>
+                    <td mat-cell *matCellDef="let element">
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="prefrence1">
+                    <th mat-header-cell *matHeaderCellDef>Prefrence 1</th>
+                    <td mat-cell *matCellDef="let element">
+                    </td>
+                </ng-container>
+                <!-- Name Column -->
+
+                <ng-container matColumnDef="prefrence2">
+                    <th mat-header-cell *matHeaderCellDef>Prefrence 2</th>
+                    <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="prefrence3">
+                    <th mat-header-cell *matHeaderCellDef>Prefrence 3</th>
+                    <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="Edit">
+                        <th mat-header-cell *matHeaderCellDef>Edit</th>
+                        <td mat-cell *matCellDef="let element"> </td>
+                    </ng-container>
+
+                <ng-container matColumnDef="Action">
+                    <th mat-header-cell *matHeaderCellDef style="width: 20px;"> Action </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center; ">
+                        <a><b><img src="./assets/images/view.svg" style="height: 20px;"
+                                    (click)="viewRouteRequestDetails(element)"></b></a>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[10, 30, 100]" showFirstLastButtons></mat-paginator>
+
+        </div>
+    </div>
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+        <p style="color: red">Please Wait. </p>
+    </ngx-spinner>
+</div>

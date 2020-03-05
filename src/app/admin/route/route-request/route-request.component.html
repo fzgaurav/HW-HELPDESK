@@ -1,0 +1,88 @@
+<div class="row mb-5 ml-2 mr-2">    
+        <div class=" col-md-12" style="background:#6d7884">
+            <div class="text-white pt-1 pb-1" style="background:#6d7884">
+                <h5 class="text-uppercase text-left mb-0">ROUTE REQUEST</h5>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4" >
+                <h6 class="custom-title"><strong><i>Request For</i></strong></h6>
+            <div class="row mt-3 pt-1 pb-1 border" style="background-color: white;">
+                <div class="col-md-6">
+                        <span><b>Today's Date:     {{myDate | date:'dd-MMM-yyyy'}}</b></span>
+                </div>
+              
+                <div class="col-md-6">
+                        <span><b>Time Left: 2 Day's Remaining</b></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mt-1" >
+            <div class="row mt-3 pt-1 pb-1 border" style="background-color: white;">
+                <div class="col-md-3">
+                    <mat-radio-group aria-label="Select Type" [(ngModel)]="requestType" (change)="radioChange(requestType)">
+                        <mat-radio-button value="N">Normal</mat-radio-button>
+                        <mat-radio-button value="T">Tatkal</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="col-md-3" *ngIf="isShown">
+                    <mat-form-field class="example-full-width d-block">
+                        <mat-select placeholder="Select Slot" (selectionChange)="onSlotChange($event)">
+                            <mat-option [value]="1">-- Select --</mat-option>
+                            <mat-option *ngFor="let item of requestForObjs" [value]="item.ID">{{item.VALUE}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <h6 class="custom-title"><strong><i>Route List</i></strong></h6>
+        </div>
+        <div class="col-md-12 row mb-6">
+            <table class="table" style="width: 100%">
+                <thead style="background-color: #e2e2e2;">
+                    <tr>
+                        <th>SNo.</th>
+                        <th>District</th>
+                        <th>Default Route</th>
+                        <th>Last Requested</th>
+                        <th>Last Approved</th>
+                        <th>Request Route</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of defaultRouteObjs">
+                        <td>
+                            {{defaultRouteObjs.indexOf(item) + 1}}
+                        </td>
+                        <td>
+                            {{item.city_name}}
+                        </td>
+                        <td>
+                            {{item.defaultRoute}}
+                        </td>
+                        <td>
+                            {{item.lastCycleRequestedRoute}}
+                        </td>
+                        <td>
+                           {{item.lastCycleApprovedRoute}}
+                        </td>
+                        <td>
+                            <input class="form-control" [(ngModel)]="item.requestedRoute" value="{{item.requestedRoute}}" type="text" class="col-4" /> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-outline-primary rounded-100 mr-5"
+                                (click)="CreateRouteRequest()">Create Request</button>
+        </div>
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+            <p style="color: red">Please Wait. </p>
+        </ngx-spinner>
+    </div>

@@ -1,0 +1,145 @@
+<!-- <h2 mat-dialog-title>Approve Request Details</h2>
+
+<mat-dialog-content class="example-form">
+  <div class="col-md-12 p-0">
+    <table class="table" style="width: 100%; font-size: 12px;" >
+        <thead>
+            <tr style="color: #fff; text-align: center;">
+                <th>SNo.</th>
+                <th>Call</th>
+                <th>Order No.</th>
+                <th>Customer Name</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Status Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let element of IvrPendingAttemptObjs' style="text-align: center;">
+              <td>{{IvrPendingAttemptObjs.indexOf(element) + 1}}</td>
+              <td>{{element.OrderNo}}</td>
+              <td>{{element.CustomerName}}</td>
+              <td>{{element.Product}}</td>
+              <td>{{element.Price}}</td>
+              <td>{{element.IvrStatus}}</td>
+             
+            </tr>
+        </tbody>
+    </table> 
+  </div>
+  <div class="row">
+      <div class="col-md-6 text-right">
+      </div>
+      <div class="col-md-6 text-right">
+          <button class="btn btn-success" *ngIf="this.isButtonVisible" (click)="ApprovedRequest('Route Request')">Approve</button>&nbsp;&nbsp;
+        <button class="btn btn-danger" (click)="close()">Close</button>
+      </div>
+  </div>
+  <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+      <p style="color: red">Please Wait. </p>
+  </ngx-spinner>
+</mat-dialog-content> -->
+
+<div class="row mb-2 ml-2 mr-2">
+  <div class=" col-md-12" style="background:#6d7884">
+      <div class="text-white pt-1 pb-1" style="background:#6d7884">
+          <h5 class="text-uppercase text-left mb-0">Pending Attempt</h5>
+      </div>
+  </div>
+  <div class="col-md-12 mt-4">
+      <h6 class="custom-title"><strong><i>Appply Filter</i></strong></h6>
+      <div class="row mt-3 pt-1 pb-1 border" style="background-color: white;">
+          <div class="col-md-4">
+
+              <mat-form-field class="example-full-width d-block">
+                  <input matInput placeholder="Order No.">
+              </mat-form-field>
+          </div>
+
+
+          <div class="col-md-4">
+              <mat-form-field class="example-full-width d-block">
+                  <input matInput placeholder="Customer Name">
+              </mat-form-field>
+          </div>
+
+          <div class="col-md-4">
+              <mat-form-field class="example-full-width d-block">
+                  <mat-select placeholder="Status">
+                      <mat-option [value]="0">-- Select --</mat-option>
+                      <mat-option [value]="1">Pending For Attempt</mat-option>
+                      <mat-option [value]="2">No Answer</mat-option>
+                      <mat-option [value]="3">Call To Customer</mat-option>
+                      <mat-option [value]="4">Call By IVR</mat-option>
+                      <mat-option [value]="1">Verified</mat-option>
+
+                  </mat-select>
+              </mat-form-field>
+          </div>
+          <div class="col-md-9">
+          </div>
+
+      </div>
+  </div>
+
+  <div class="col-12 mt-4">
+      <h6 class="custom-title"><strong><i>Order Details</i></strong></h6>
+  </div>
+
+  <div class="col-md-12 row mb-6">
+      <div class="col-sm-12">
+          <mat-form-field class="example-full-width">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+      </div>
+      <div class="col-sm-12">
+          <table mat-table [dataSource]="dataSource" style="width: 100%">
+              <ng-container matColumnDef="SNo.">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: center;">SNo.</th>
+                  <td mat-cell *matCellDef="let element; let i = index;" style="text-align: center;">
+                      {{ i + 1 }}</td>
+              </ng-container>
+               <ng-container matColumnDef="MobileNo">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: center;">Call</th>
+                  <td mat-cell *matCellDef="let element" style="text-align: center;">
+                      <a>{{element.MobileNo}}</a></td>
+              </ng-container>
+              <ng-container matColumnDef="OrderNo">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: center;">Order No.</th>
+                  <td mat-cell *matCellDef="let element" style="text-align: center;">
+                      <a routeLink="">{{element.OrderNo}}</a></td>
+              </ng-container>
+              <ng-container matColumnDef="CustomerName">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: center;">Customer Name</th>
+                  <td mat-cell *matCellDef="let element" style="text-align: center;">
+                      <a>{{element.CustomerName}}</a></td>
+              </ng-container>
+              <ng-container matColumnDef="Product">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: center;">Product</th>
+                  <td mat-cell *matCellDef="let element" style="text-align: center;">
+                      {{element.Product}}</td>
+              </ng-container>
+             
+              <ng-container matColumnDef="Price">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: center;">Price</th>
+                  <td mat-cell *matCellDef="let element" style="text-align: center;"><a> {{element.Price}}</a>
+                  </td>
+              </ng-container>
+              <ng-container matColumnDef="Status">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Status/Update </th>
+                  <td mat-cell *matCellDef="let element" style="text-align: center;">
+                  </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[50, 100, 200]" showFirstLastButtons></mat-paginator>
+
+      </div>
+  </div>
+
+  <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+      <p style="color: red">Please Wait. </p>
+  </ngx-spinner>
+</div>

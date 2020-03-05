@@ -1,0 +1,158 @@
+<div class="row mb-5 ml-2 mr-2">
+        <div class=" col-md-12" style="background:#6d7884">
+            <div class="text-white pt-1 pb-1" style="background:#6d7884">
+                <h5 class="text-uppercase text-left mb-0">ADD PHLEBO</h5>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4">
+            <h6 class="custom-title mb-4"><strong><i>ADD PHLEBO</i></strong></h6>
+            <mat-card style="width: 80%; margin: 0 auto;">
+                <mat-card-content>
+                    <form [formGroup]="AddPhleboForm" (ngSubmit)="onAddPhlebo(AddPhleboForm.value)" class="example-form">
+                        <div class="row col-md-12">
+                            <div class="col-md-4">
+                                <div class="col-md-12">
+                                    <img [src]="imageUrl" class="img" style="border-radius: 50%; border: 1px solid; width: 200px; height: 200px;" width="240" height="170">
+                                </div>
+                                <div class="col-md-12 pt-2 pb-2 pl-5">
+                                    <input type="file" name="image" (change)="fileProgress($event)" />
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="image-preview mb-3" *ngIf="previewUrl">
+                                        <img [src]="previewUrl" width="240" height="170" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-md-8" style="height: max-content;">
+                                <div class="col-md-6 mb-2">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Employee Type" formControlName="employeetype" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Employee ID" formControlName="employeeid" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Phlebo Name" formControlName="phleboname" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Date Of Joining" formControlName="doj" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Date Of Birth" formControlName="dob" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-select placeholder="Select Drop Point" formControlName="droppointid"
+                                            [value]="selected" required>
+                                            <mat-option>-- Select --</mat-option>
+                                            <!-- <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                                        </mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-select placeholder="Select Help Desk" formControlName="helpdeskid"
+                                            [value]="selected" required>
+                                            <mat-option>-- Select --</mat-option>
+                                            <!-- <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                                            </mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-select placeholder="Select Prefrence" formControlName="prefrence1"
+                                            [value]="selected" required>
+                                            <mat-option>-- Select --</mat-option>
+                                            <!-- <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                                                </mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-select placeholder="Prefrence" formControlName="prefrence2" [value]="selected"
+                                            required>
+                                            <mat-option>-- Select --</mat-option>
+                                            <!-- <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                                                    </mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-select placeholder="Prefrence" formControlName="prefrence3" [value]="selected"
+                                            required>
+                                            <mat-option>-- Select --</mat-option>
+                                            <!-- <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                                                        </mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-select placeholder="Select Trainer" formControlName="trainerID"
+                                            [value]="selected" required>
+                                            <mat-option>-- Select --</mat-option>
+                                            <!-- <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                                                            </mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Cli No." formControlName="alternateNo" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Mobile No." formControlName="mobile" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Pincode" formControlName="pincode" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Address" formControlName="address" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Geo Address" formControlName="geoaddress" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-select placeholder="Home Verification" formControlName="trainerID"
+                                            [value]="selected" required>
+                                            <mat-option>-- Select --</mat-option>
+                                            <!-- <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                                                                    </mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="col-md-4"><button mat-raised-button color="warn"
+                                (click)="OnClickAddPincode()">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button mat-raised-button color="warn">Reset</button>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>

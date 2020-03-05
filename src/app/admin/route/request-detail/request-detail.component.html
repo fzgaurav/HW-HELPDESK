@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Approve Request Details</h2>
+
+<mat-dialog-content class="example-form">
+  <div class="col-md-12 p-0">
+    <table class="table" style="width: 100%; font-size: 12px;" >
+        <thead>
+            <tr style="color: #fff; text-align: center;">
+                <th>SNo.</th>
+                <th>District</th>
+                <th>Default Route</th>
+                <th>Last Approved Route</th>
+                <th>Requested Route</th>
+                <th>Approve Route</th>
+                <!-- <th>Approve</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let element of requestDetailsObjs' style="text-align: center;">
+              <td>{{requestDetailsObjs.indexOf(element) + 1}}</td>
+              <td>{{element.DistrictName}}</td>
+              <td>{{element.DefaultRoute}}</td>
+              <td>{{element.LastApprovedRoute}}</td>
+              <td>{{element.RequestedRoute}}</td>
+              <td>{{element.ApprovedRoute}}</td>
+              <!-- <td><input id="txt" type="text"  [disabled]="!chkEnable.checked" [(ngModel)]="element.ApprovedRoute"  value="{{element.ApprovedRoute}}"
+                 style="width: 80px !important; min-width: auto;"></td>
+              <td><input #chkEnable [(ngModel)]="element.isApproved" type="checkbox" /></td> -->
+            </tr>
+        </tbody>
+    </table> 
+  </div>
+  <div class="row">
+      <div class="col-md-6 text-right">
+      </div>
+      <div class="col-md-6 text-right">
+          <button class="btn btn-success" *ngIf="this.isButtonVisible" (click)="ApprovedRequest('Route Request')">Approve</button>&nbsp;&nbsp;
+        <button class="btn btn-danger" (click)="close()">Close</button>
+      </div>
+  </div>
+  <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+      <p style="color: red">Please Wait. </p>
+  </ngx-spinner>
+</mat-dialog-content>

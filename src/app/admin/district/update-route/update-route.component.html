@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Set Default Route</h2>
+
+<mat-dialog-content [formGroup]="insertOrUpdateFormObj" class="example-form">
+    <input type="hidden" formControlName="city_id">
+    <div class="col-md-12">
+    </div>
+    <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="District Name" disabled="disabled" formControlName="city_name" required>
+        </mat-form-field>
+    </div>
+    <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="No. Of Route" formControlName="defaultRoute" required>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-danger float-left" (click)="close()">Close</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary float-right" (click)="onClickInsertOrUpdate()">{{btnSubmitText}}</button>
+        </div>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,64 @@
+
+<div class="row mb-5 ml-2 mr-2">
+        <div class=" col-md-12" style="background:#6d7884">
+                <div class="text-white pt-1 pb-1" style="background:#6d7884">
+                    <h5 class="text-uppercase text-left mb-0">ADD PINCODE</h5>
+                </div>
+            </div>
+            <div class="col-md-12 mt-4">
+                    <h6 class="custom-title mb-4"><strong><i>Create Pincode</i></strong></h6>
+<mat-card>
+    <!-- Title of an Card -->
+    <mat-card-title style="font-size: 13px !important;">
+        ADD DISTRICT
+    </mat-card-title>
+
+    <mat-card-content>
+        <form [formGroup]="AddRouteForm" (ngSubmit)="onAddDistrictSubmit(AddRouteForm.value)" class="example-form">
+                <div class="col-md-4">
+                        <mat-form-field class="example-full-width d-block">
+                            <mat-select placeholder="Select Circle" formControlName="CircleId" [value]="selected"
+                                (selectionChange)="onCicleChangeEvent($event)" required>
+                                <mat-option>-- Select --</mat-option>
+                                <mat-option *ngFor="let item of circleObjs" [value]="item.CircleId">{{item.CircleName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                        <mat-form-field class="example-full-width d-block">
+                            <mat-select placeholder="Select State" formControlName="state_s_id" [value]="selected"
+                                (selectionChange)="onStateChangeEvent($event)" required>
+                                <mat-option>-- Select --</mat-option>
+                                <mat-option *ngFor="let item of stateObjs" [value]="item.s_id">{{item.s_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                        <mat-form-field class="example-full-width d-block">
+                            <mat-select placeholder="Select District" formControlName="city_id" [value]="selected" required>
+                                <mat-option>-- Select --</mat-option>
+                                <mat-option *ngFor="let item of districtObjs" [value]="item.city_id">{{item.city_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                        <mat-form-field class="example-full-width d-block">
+                            <mat-select placeholder="Select Default Route" formControlName="defaultRoute" [value]="selected" required>
+                                <mat-option>-- Select --</mat-option>
+                                <mat-option *ngFor="let item of itemQuantity" [value]="item">{{item}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <td><button mat-raised-button color="warn"  (click)="OnClickAddDistrict()">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button mat-raised-button color="warn">Reset</button></td>
+                </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+</div>
+</div>

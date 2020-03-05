@@ -1,0 +1,122 @@
+<div class="row mb-2 ml-2 mr-2">
+    <div class=" col-md-12" style="background:#6d7884">
+        <div class="text-white pt-1 pb-1" style="background:#6d7884">
+            <h5 class="text-uppercase text-left mb-0">Auto Verification</h5>
+        </div>
+    </div>
+    <div class="col-md-12 mt-4">
+        <h6 class="custom-title"><strong><i>IVR Call Tracking</i></strong></h6>
+        <div class="row mt-3 pt-1 pb-1 border" style="background-color: white;">
+            <div class="col-md-4">
+                <!-- <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Pick-up date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> -->
+                <mat-form-field class="example-full-width d-block">
+                        <mat-select placeholder="Pick-UP Date">
+                            <mat-option [value]="0">-- Select --</mat-option>
+                            <mat-option [value]="1">Today+1 </mat-option>
+                           
+                        </mat-select>
+                </mat-form-field>
+            </div>
+
+
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width d-block">
+                    <mat-select placeholder="Process">
+                        <mat-option>-- Select --</mat-option>
+                        <mat-option [value]="0">HM</mat-option>
+                        <mat-option [value]="1">INB</mat-option>
+                        <mat-option [value]="2">OB</mat-option>
+                        <mat-option [value]="3">SAH</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width d-block">
+                    <mat-select placeholder="Select Center">
+                        <mat-option [value]="0">-- Select --</mat-option>
+                        <mat-option [value]="1">Gurgaon</mat-option>
+                        <mat-option [value]="4">Preet Vihar</mat-option>
+                        <mat-option [value]="6">Out Side</mat-option>
+                        <mat-option [value]="15">Chandigarh</mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-9">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-12 mt-4">
+        <h6 class="custom-title"><strong><i>IVR Call Details</i></strong></h6>
+    </div>
+
+    <div class="col-md-12 row mb-6">
+        <div class="col-sm-12">
+            <!-- <mat-form-field class="example-full-width">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field> -->
+        </div>
+        <div class="col-sm-12">
+            <table mat-table [dataSource]="dataSource" style="width: 100%">
+                <ng-container matColumnDef="SNo.">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">SNo.</th>
+                    <td mat-cell *matCellDef="let element; let i = index;" style="text-align: center;">
+                        {{ i + 1 }}</td>
+                </ng-container>
+                <!-- Position Column -->
+                <ng-container matColumnDef="TotalOrder">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Total Orders</th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;">
+                        <!-- <a href="javascript:;" (click)="viewTotalOrderDetails()">{{element.TotalOrder}}</a>-->
+                        <a routerLink="/admin/scheduling/totalorder" style="text-decoration: none;">{{element.TotalOrder}}</a>
+                    </td> 
+                </ng-container>
+                <ng-container matColumnDef="PendingAttempt">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Pending for attempt</th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;">
+                        <!-- <a href="javascript:;" (click)="viewPendingAttempt()" >{{element.PendingAttempt}}</a> -->
+                        <a routerLink="/admin/scheduling/pendingattempt" style="text-decoration: none">{{element.PendingAttempt}}</a>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="Attempt">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Attempt</th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;">
+                        {{element.Attempt}}</td>
+                </ng-container>
+                <!-- Name Column -->
+                <ng-container matColumnDef="Verified">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Verified</th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;"><a> {{element.Verified}}</a> </td>
+                </ng-container>
+                <ng-container matColumnDef="NoAnswer">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> No Response </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;"><a> {{element.NoAnswer}}</a> </td>
+                </ng-container>
+                <ng-container matColumnDef="CallToCustomerCare">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Connect to Customer Care </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.CallToCustomerCare}} </td>
+                </ng-container>
+                <ng-container matColumnDef="CallByIVR">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Call by IVR</th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.CallByIVR}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[10, 30, 100]" showFirstLastButtons></mat-paginator>
+
+        </div>
+    </div>
+
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+        <p style="color: red">Please Wait. </p>
+    </ngx-spinner>
+</div>
